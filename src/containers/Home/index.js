@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../../components/Header";
 import { connect } from "react-redux";
 import { getHomeList } from "./store/action";
 
@@ -17,7 +16,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header />
         <div>this is home</div>
         <div>{this.props.name}</div>
         <div>
