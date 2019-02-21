@@ -1,6 +1,4 @@
 import { CHANGE_LIST } from './constant'
-import clientAxios from '../../../client/request'
-import serverAxios from '../../../server/request'
 
 const changeList = (list) => {
   return {
@@ -10,9 +8,8 @@ const changeList = (list) => {
 }
 
 export const getHomeList = (server) => {
-  const request = server ? serverAxios : clientAxios
-  return (dispatch)=> {
-    return request.get('/api/news.json?secret=PP87ANTIPIRATE')
+  return (dispatch, getState, axios)=> {
+    return axios.get('/api/news.json?secret=PP87ANTIPIRATE')
       .then((data) => {
         dispatch(changeList(data.data.data))
       })
